@@ -104,7 +104,7 @@ author:
   name             : "SOJEONG KIM"
   avatar           : "/assets/profile/profile.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "DATA SCIENCE ARCHIVING"
-  location         : "Somewhere"
+  location         : "Seoul"
   email            :
   links:
     - label: "Email"
