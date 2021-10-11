@@ -6,7 +6,7 @@ categories:
   - machinelearning
 tags:
   - [machinelearning, 회귀분석, 라쏘, 릿지]
-
+comments: true
 toc: true
 toc_sticky: true
  
