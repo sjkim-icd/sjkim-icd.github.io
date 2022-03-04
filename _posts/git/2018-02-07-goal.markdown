@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "test"
+title:  "git goal"
 summary: GIT HUB 첫글
 author: KSJ
 date: '2021-02-18 09:41:00 +0900'
