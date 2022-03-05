@@ -6,10 +6,7 @@ excerpt: "Model Free Prediction"
 header:
   overlay_image: /assets/2022-03-04/이미지_0108004.jpg
   og_image: /assets/2022-03-04/이미지_0108004.jpg
-  caption: "Photo from the series: [**Straying around**](/weekend_stories/2021/2021-03_Stray_around_3/)"
-  actions:
-    - label: "See More"
-      url: /weekend_stories/2021/2021-03_Stray_around_3/
+  caption:  "Photo credit: [**Unsplash**](https://unsplash.com/photos/842ofHC6MaI)"
 
 categories:
   - reinforcement
