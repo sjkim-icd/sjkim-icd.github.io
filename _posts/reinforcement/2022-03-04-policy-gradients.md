@@ -46,11 +46,11 @@ last_modified_at: 2022-03-04
 
 - 이전 value approximation에서는 파라미터 세타를 이용해 action-value function을 근사하고 이것을 이용해 policy를 generate함
     
-    ![이미지 0124011.jpg](assets/2022-03-04/이미지_0124011.jpg)
+    ![이미지 0124011.jpg](/assets/2022-03-04/이미지_0124011.jpg)
     
 - 이제는 policy를 직접 파라미터화함
     
-    ![이미지 0124012.jpg](assets/2022-03-04/이미지_0124012.jpg)
+    ![이미지 0124012.jpg](/assets/2022-03-04/이미지_0124012.jpg)
     
 - model -free 강화학습(sampling)에 focus
 
@@ -79,11 +79,11 @@ last_modified_at: 2022-03-04
 
 - parameter 세타를 가지고, output이 a(optimal action에 대한 probability distribution) ⇒optimal policy를 찾으려고 함 : s가 주어지면 action에 대한 확률이 나오고 action을 뱉는 것
     
-    ![이미지 0126001.jpg](assets/2022-03-04/이미지_0126001.jpg)
+    ![이미지 0126001.jpg](/assets/2022-03-04/이미지_0126001.jpg)
     
 - policy π(θ)를 어떻게 improve하고 optimize할 수 있을까? → score function(J(θ))을 maximize하는 best parameter θ를 찾아야함
     
-    ![이미지 0126002.jpg](assets/2022-03-04/이미지_0126002.jpg)
+    ![이미지 0126002.jpg](/assets/2022-03-04/이미지_0126002.jpg)
     
 - expected return이 maximize 되는 것 → 모든 step의 reward를 더하는 걸 **τ(타우**)라고 함
 - π(θ)를 improve하는 best parameter θ를 찾기 위해 policy gradient ascent 사용함
@@ -92,13 +92,13 @@ last_modified_at: 2022-03-04
 
 **1) In episodic environments** → start value를 사용할 수 있음
 
-![이미지 0126003.jpg](assets/2022-03-04/이미지_0126003.jpg)
+![이미지 0126003.jpg](/assets/2022-03-04/이미지_0126003.jpg)
 
 처음 시작하는 애는 value와 같고 기대치로 표현 가능
 
 **2)  In continuing environments** → average value를 사용할 수 있음
 
-![이미지 0126004.jpg](assets/2022-03-04/이미지_0126004.jpg)
+![이미지 0126004.jpg](/assets/2022-03-04/이미지_0126004.jpg)
 
  d^π(θ) : 각 state의 분포 
 
@@ -116,14 +116,14 @@ d^π(θ)(S) : stationary distribution of Markov chain for π(θ)
 - score function을 maximize하는 건 = optimal policy를 찾는 것을 의미함
 - J(θ) score function을 maximize하기 위해 gradient ascent를 함
     
-    ![이미지 0126005.jpg](assets/2022-03-04/이미지_0126005.jpg)
+    ![이미지 0126005.jpg](/assets/2022-03-04/이미지_0126005.jpg)
     
 
 E는 sampling으로 가능 → gradient 하려면 θ에 대해 미분해야 하는데 r(**τ)에** θ가 없어서 적용이 러여워서 바꿔줘야 함 
 
 - s의 act 확률이 expected return이 높은 값이면 gradient ascent로 해당 함수의 확률을 조금씩 높여주는 방향 → G가 낮으면 확률 낮아지는 형태 → 경험했을 때 G가 max되게 θ gradient ascent하게 함
 
-![이미지 0126006.jpg](assets/2022-03-04/이미지_0126006.jpg)
+![이미지 0126006.jpg](/assets/2022-03-04/이미지_0126006.jpg)
 
 - 첫번째 괄호 : sample한 에피소드에서 시작부터 끝까지 갔을 때 사용한 해당 s의 action을 π(θ) 확률에 log 취해서 미분
 - 두번째 괄호: 에피소드에서 T 갔을 때의 expected return
@@ -149,11 +149,11 @@ E는 sampling으로 가능 → gradient 하려면 θ에 대해 미분해야 하�
 
 ## Reducing Variance
 
-![이미지 0129001.jpg](assets/2022-03-04/이미지_0129001.jpg)
+![이미지 0129001.jpg](/assets/2022-03-04/이미지_0129001.jpg)
 
 방법1: **τ전체에 대한 return 값 = 모든 s에 대해 R(τ)가 곱해짐 → 이것이 variance 큰 것의 원인 : 전체에 대해 일괄적으로 곱하여 큰 영향을 줌**
 
-![이미지 0129002.jpg](assets/2022-03-04/이미지_0129002.jpg)
+![이미지 0129002.jpg](/assets/2022-03-04/이미지_0129002.jpg)
 
 전체 T가 아닌 현재 보는 step t에 대해 t까지 오게 된 r이 아닌 t부터 끝까지 가게된 reward를 곱해줌  = reward to go 
 
@@ -161,11 +161,11 @@ E는 sampling으로 가능 → gradient 하려면 θ에 대해 미분해야 하�
 
 그때 그때 발생하는 R이 들쑥 날쑥 할 수 있어서 신뢰할 수 있는 baseline으로 빼주고 그 차이만큼만 영향을 주게 하자는 것 → 이 baseline이 bias를 주지 않음을 증명한 식 존재(최종적으로 baseline쪽 식은 미분하면 0이 되고 빼줘도 0이기 때문에 bias를 주지 않음)
 
-![이미지 0129003.jpg](assets/2022-03-04/이미지_0129003.jpg)
+![이미지 0129003.jpg](/assets/2022-03-04/이미지_0129003.jpg)
 
-![이미지 0129004.jpg](assets/2022-03-04/이미지_0129004.jpg)
+![이미지 0129004.jpg](/assets/2022-03-04/이미지_0129004.jpg)
 
-![이미지 0129006.jpg](assets/2022-03-04/이미지_0129006.jpg)
+![이미지 0129006.jpg](/assets/2022-03-04/이미지_0129006.jpg)
 
 베이스라인을 이걸로 주로 사용함 → policy에 의해 얻는 단발성 R(t~T)와 baseline V의 차가 minimize시키는 parameter를 gradient descent하게 학습시킴 
 
@@ -188,14 +188,14 @@ E는 sampling으로 가능 → gradient 하려면 θ에 대해 미분해야 하�
 - π에 의해 행동할 때의 Q를 근사하려는 파라미터 w
 - θ는 critic이 suggest하는 방향으로 학습
     
-    ![이미지 0129007.jpg](assets/2022-03-04/이미지_0129007.jpg)
+    ![이미지 0129007.jpg](/assets/2022-03-04/이미지_0129007.jpg)
     
 - 예전에는 R 또는 R-V였는데 이제는 Q를 근사함(R과 R-V는 에피소드 끝났을때 학습, Q는 매 스텝마다 업데이트 가능)
 - Q 값이 높으면 해당 액션을 더하려고 할 것이고, Q 값이 낮으면 그 액션을 덜하려고 함
 - advantage function은 policy gradient의 variance를 줄일 수 있음
 - Variance를 줄이려고 벨루, q, q-v 등 다양하게 제안
     
-    ![이미지 0129008.jpg](assets/2022-03-04/이미지_0129008.jpg)
+    ![이미지 0129008.jpg](/assets/2022-03-04/이미지_0129008.jpg)
     
 - 1) 환경에서 관측으로 state 정보를 얻고
 - 2) 그 S로 부터  π(θ)로 a(t) 선택
@@ -238,9 +238,9 @@ E는 sampling으로 가능 → gradient 하려면 θ에 대해 미분해야 하�
 - RL에서는 step이 너무 크면 policy가 나빠지는 현상이 있어 policy로 시행착오 → 과하게 얼토당토하지 않은 data를 얻어서 헤어나오지 못할 수 있음
 - update policy가 좋다는걸 보장하길 원함 → 큰 스텝, 작은 스텝 등 어느정도의 영역 안이면 떨어지지 않을까하는게 trust region
 
-![이미지 0129010.jpg](assets/2022-03-04/이미지_0129010.jpg)
+![이미지 0129010.jpg](/assets/2022-03-04/이미지_0129010.jpg)
 
-![이미지 0129009.jpg](assets/2022-03-04/이미지_0129009.jpg)
+![이미지 0129009.jpg](/assets/2022-03-04/이미지_0129009.jpg)
 
 - 이전 policy로 얻은 s,a의 확률값 p /지금 구한 new policy의 확률값 p
 - 과한 step이 아니도록 old와 new의 확률 분포가 너무 벌어지지 않도록 함
@@ -252,12 +252,12 @@ E는 sampling으로 가능 → gradient 하려면 θ에 대해 미분해야 하�
 - 한번 얻은걸 online 형태로 반복학습함
 - TRPO는 step size 이슈를 지적해서 trust region을 찾아 증명을 잘 한건데 → computation 구현하려고 할 땐 휴리스틱한 형태로 PPO로 사용
     
-    ![이미지 0129011.jpg](assets/2022-03-04/이미지_0129011.jpg)
+    ![이미지 0129011.jpg](/assets/2022-03-04/이미지_0129011.jpg)
     
 
 ## Clipped surrogate objective
 
-![이미지 0129012.jpg](assets/2022-03-04/이미지_0129012.jpg)
+![이미지 0129012.jpg](/assets/2022-03-04/이미지_0129012.jpg)
 
 - 두 policy의 차이를 10,20% 등으로 clip시킴 → TRPO에서 복잡한 s.t.로 주려고 한걸 간단하게 clipping으로 줌
 
