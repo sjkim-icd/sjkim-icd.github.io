@@ -1,6 +1,8 @@
+
 ---
-title: "Post with an overlay header image"
-date: 2021-08-10
+title:  "[강화학습] Model Free Prediction"
+excerpt: "Model Free Prediction"
+
 header:
   overlay_image: /assets/2022-03-04/이미지_0108004.jpg
   og_image: /assets/2022-03-04/이미지_0108004.jpg
@@ -8,8 +10,19 @@ header:
   actions:
     - label: "See More"
       url: /weekend_stories/2021/2021-03_Stray_around_3/
-excerpt: "This post has an overlay header image"
-tagline: "This is a custom tagline content which overrides the *default* page excerpt."
+
+categories:
+  - reinforcement
+tags:
+  - [Model Free Prediction]
+comments: true
+toc: true
+toc_sticky: true
+ 
+date: 2022-03-04
+last_modified_at: 2022-03-04
+tagline: "Model Free Prediction"
+
 ---
 
 
