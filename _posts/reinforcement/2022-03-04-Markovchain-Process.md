@@ -209,4 +209,4 @@ last_modified_at: 2022-03-04
 
 **References** 
 
-[Lecture 2: Markov Decision Processes (davidsilver.uk)](https://www.davidsilver.uk/wp-content/uploads/2020/03/MDP.pdf)
+[Lecture 2: Markov Decision Processes (davidsilver.uk)]

@@ -259,5 +259,4 @@ Q는 optimal에 빠르게 도달하고자 하는 알고리즘으로 cliff walkin
 ![이미지 0108067.jpg](/assets/2022-03-04/이미지_0108067.jpg)
 
 **Referneces**
-
-[https://www.davidsilver.uk/wp-content/uploads/2020/03/control.pdf](https://www.davidsilver.uk/wp-content/uploads/2020/03/control.pdf)
+davidsilver

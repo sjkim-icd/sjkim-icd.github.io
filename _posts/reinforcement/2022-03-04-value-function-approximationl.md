@@ -403,8 +403,7 @@ DQN [NIPS 2013], [Nature 2015]
 
 ## References
 
-[Teaching - David Silver](https://www.davidsilver.uk/teaching/)
+[Teaching - David Silver]
 
-[https://www.davidsilver.uk/wp-content/uploads/2020/03/FA.pdf](https://www.davidsilver.uk/wp-content/uploads/2020/03/FA.pdf)
-
-[3. Logistic Regression](https://www.notion.so/3-Logistic-Regression-b0bb16e5635a4160bc250020c7624773)
+[https://www.davidsilver.uk/wp-content/uploads/2020/03/FA.pdf]
+[3. Logistic Regression]

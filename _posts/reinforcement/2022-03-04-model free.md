@@ -263,5 +263,4 @@ tagline: "Model Free Prediction"
 - MC와 같이 끝까지 가서 계산 다하게 되는 특징
 
 References
-
-[https://www.davidsilver.uk/wp-content/uploads/2020/03/MC-TD.pdf](https://www.davidsilver.uk/wp-content/uploads/2020/03/MC-TD.pdf)
+davidsilver

@@ -255,4 +255,4 @@ last_modified_at: 2022-03-04
 
 References
 
-[https://www.davidsilver.uk/wp-content/uploads/2020/03/MC-TD.pdf](https://www.davidsilver.uk/wp-content/uploads/2020/03/MC-TD.pdf)
+[https://www.davidsilver.uk/wp-content/uploads/2020/03/MC-TD.pdf]
