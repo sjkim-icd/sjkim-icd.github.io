@@ -209,4 +209,4 @@ last_modified_at: 2022-03-04
 
 **References** 
 
-[Lecture 2: Markov Decision Processes (davidsilver.uk)]
+Lecture 2: Markov Decision Processes 

@@ -193,6 +193,4 @@ v(s) = 4 * 0.25 * -1
 
 **References:** 
 
-David Silver [Teaching - David Silver]
-
-[Lecture 3: Planning by Dynamic Programming (davidsilver.uk)]
+David Silver Lecture 3: Planning by Dynamic Programming
