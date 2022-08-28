@@ -1,15 +1,14 @@
-
 ---
 title: "[딥러닝] Transformer(개념/수식/구현 코드/튜토리얼)"
 header:
-  teaser: /assets/2022-08-28/%EC%9D%B4%EB%AF%B8%EC%A7%80_0827020.jpg
-  overlay_image: /assets/2022-08-28/%EC%9D%B4%EB%AF%B8%EC%A7%80_0827020.jpg
+  teaser:  /assets/2022-08-28/%EC%9D%B4%EB%AF%B8%EC%A7%80_0827020.jpg
+  overlay_image:  /assets/2022-08-28/%EC%9D%B4%EB%AF%B8%EC%A7%80_0827020.jpg
   overlay_filter: 0.5
 
 categories:
   - deeplearning
 tags:
-  - [딥러닝 LSTM 개념]
+  - [딥러닝 Transformer 개념]
 comments: true
 toc: true
 toc_sticky: true
@@ -17,7 +16,6 @@ toc_sticky: true
 date: 2022-08-28
 last_modified_at: 2022-08-28
 ---
-
 
 - Transformer는 Attention이라는 개념을 전적으로 활용하고 있음
 
