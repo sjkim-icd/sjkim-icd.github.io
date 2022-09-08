@@ -42,12 +42,12 @@ tags: [About]
 - 2) 디지털마케팅팀의 APP PUSH, 메인팝업, 피드 노출에 활용<br/>
 - 3) CRM I/B, O/B 카드추천 활용<br/>
 #### **4. 융합데이터 분석 및 상권/입지 추천서비스 개발(2021)**   <br/>
-- 1) 미래에셋 * 롯데카드 가명정보 결합 데이터를 활용한 데이터분석 및 가명정보 활용 우수사례 경진대회 입상
-- 2) 데이터기반 비즈니스 협업 플랫폼인 데이터스(Datus)의 상권 입지/업종 추천 서비스 개발 및 인사이트 분석 보고서 
-      - [입지추천서비스](https://datus.lottecard.co.kr/analysis/analysisProductView.lc?pdId=990000000000223&orderType=&orderSort=&searchCtgId=&searchCondition=&lastSearchType=&searchKeyword=&pageIndex=1)
-      - [업종추천서비스](https://datus.lottecard.co.kr/analysis/analysisProductView.lc?pdId=990000000000221&orderType=&orderSort=&searchCtgId=&searchCondition=&lastSearchType=&searchKeyword=&pageIndex=1)
-      - [인사이트보고서:코로나 전/후의 소비 패턴 변화](https://datus.lottecard.co.kr/analysis/insightReportView.lc?pdId=990000000000321&orderType=&orderSort=&searchCtgId=&searchCondition=&searchKeyword=&pageIndex=1)
-      - [인사이트보고서:서학/동학개미의 소비 및 투자 현황 분석](https://datus.lottecard.co.kr/analysis/insightReportView.lc?pdId=990000000000323&orderType=&orderSort=&searchCtgId=&searchCondition=&searchKeyword=&pageIndex=1)
+- 1) 미래에셋 * 롯데카드 가명정보 결합 데이터를 활용한 데이터분석 및 가명정보 활용 우수사례 경진대회 입상 <br/>
+- 2) 데이터기반 비즈니스 협업 플랫폼인 데이터스(Datus)의 상권 입지/업종 추천 서비스 개발 및 인사이트 분석 보고서 <br/>
+      - [입지추천서비스](https://datus.lottecard.co.kr/analysis/analysisProductView.lc?pdId=990000000000223&orderType=&orderSort=&searchCtgId=&searchCondition=&lastSearchType=&searchKeyword=&pageIndex=1)<br/>
+      - [업종추천서비스](https://datus.lottecard.co.kr/analysis/analysisProductView.lc?pdId=990000000000221&orderType=&orderSort=&searchCtgId=&searchCondition=&lastSearchType=&searchKeyword=&pageIndex=1)<br/>
+      - [인사이트보고서:코로나 전/후의 소비 패턴 변화](https://datus.lottecard.co.kr/analysis/insightReportView.lc?pdId=990000000000321&orderType=&orderSort=&searchCtgId=&searchCondition=&searchKeyword=&pageIndex=1)<br/>
+      - [인사이트보고서:서학/동학개미의 소비 및 투자 현황 분석](https://datus.lottecard.co.kr/analysis/insightReportView.lc?pdId=990000000000323&orderType=&orderSort=&searchCtgId=&searchCondition=&searchKeyword=&pageIndex=1)<br/>
 
 #### **5. App 내 컨텐츠 추천 서비스 개발(2022)**   <br/>
 
