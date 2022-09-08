@@ -4,7 +4,7 @@ title: "[Continual Learning] Continual Learning"
 categories:
   - Continual-Learning
 tags:
-  - [딥러닝 Transformer 개념]
+  - [Continual-Learning]
 comments: true
 toc: true
 toc_sticky: true
