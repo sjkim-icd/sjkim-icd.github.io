@@ -3,9 +3,10 @@ permalink: /about/
 title: "About"
 layout: archive
 excerpt: "about.md"
-last_modified_at: 2021-10-11T12:04:24-04:00
+last_modified_at: 2022-09-05
 toc: true
 toc_sticky: true
+published: true
 toc_label: "MYSELF"
 tags: [About]
 ---
