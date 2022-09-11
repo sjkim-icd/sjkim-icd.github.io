@@ -1,8 +1,7 @@
 ---
 title: "[Continual Learning] Continual Learning"
 
-categories:
-  - Continual-Learning
+categories: Continual-Learning
 tags:
   - [Continual-Learning]
 comments: true
