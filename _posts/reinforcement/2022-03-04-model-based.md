@@ -2,8 +2,7 @@
 title:  "[강화학습] Model-based Planning"
 excerpt: "Model-based Planning"
 
-categories:
-  - reinforcement
+categories: Reinforcement-Learning
 tags:
   - [Model-based Planning]
 comments: true

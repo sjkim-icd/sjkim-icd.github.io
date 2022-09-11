@@ -2,8 +2,7 @@
 title:  "[강화학습] Model Free Prediction"
 excerpt: "Model Free Prediction"
 
-categories:
-  - reinforcement
+categories: Reinforcement-Learning
 tags:
   - [Model Free Prediction]
 comments: true

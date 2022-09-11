@@ -2,8 +2,7 @@
 title:  "[머신러닝] 회귀분석"
 excerpt: "회귀분석의 원리, 종류(일반 선형, 릿지, 라쏘, 엘라스틱넷), 해당 알고리즘의 장단점을 다룹니다."
 
-categories:
-  - machinelearning
+categories: Machine-Learning
 tags:
   - [machinelearning, 회귀분석, 라쏘, 릿지]
 comments: true

@@ -2,8 +2,7 @@
 title:  "[강화학습] Model-free control"
 excerpt: "Model-free control"
 
-categories:
-  - reinforcement
+categories: Reinforcement-Learning
 tags:
   - [Model-free control]
 comments: true

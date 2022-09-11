@@ -2,8 +2,7 @@
 title:  "[강화학습] Policy Gradients"
 excerpt: "Policy Gradients"
 
-categories:
-  - reinforcement
+categories: Reinforcement-Learning
 tags:
   - [Policy Gradients]
 comments: true

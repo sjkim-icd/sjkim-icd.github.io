@@ -3,7 +3,7 @@ title:  "[강화학습] Markov Decision Process"
 excerpt: "Markov Decision Process"
 
 categories:
-  - reinforcement
+  - Reinforcement-Learning
 tags:
   - [Markov Decision Process]
 comments: true

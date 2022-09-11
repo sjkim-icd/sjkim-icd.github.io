@@ -1,4 +1,3 @@
-
 ---
 title:  "[강화학습] Model Free Prediction"
 excerpt: "Model Free Prediction"
@@ -8,8 +7,7 @@ header:
   og_image: /assets/2022-03-04/이미지_0108004.jpg
   caption:  "Photo credit: [**Unsplash**](https://unsplash.com/photos/842ofHC6MaI)"
 
-categories:
-  - reinforcement
+categories: Reinforcement-Learning
 tags:
   - [Model Free Prediction]
 comments: true
