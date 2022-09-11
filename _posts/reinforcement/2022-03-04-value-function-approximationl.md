@@ -3,7 +3,7 @@ title:  "[강화학습] value function approximation"
 excerpt: "value function approximation"
 
 categories:
-  - reinforcement
+  - Reinforcement-Learning
 tags:
   - [value function approximation]
 comments: true

@@ -6,7 +6,7 @@ header:
   overlay_filter: 0.5
 
 categories:
-  - deeplearning
+  - Deep-Learning
 tags:
   - [딥러닝 Transformer 개념]
 comments: true
