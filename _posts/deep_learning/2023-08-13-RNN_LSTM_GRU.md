@@ -36,6 +36,7 @@ last_modified_at: 2023-08-13
 - 입력되는 단어가 짧은 hello 든 더 길든 → 셀 A에 들어가는 파라미터만 알고 있으면 다음 단어를 예측하는 모델을 정상적으로 작동함
 
 ![이미지 0708066.jpg](/assets/RNN_GRU_LSTM/%EC%9D%B4%EB%AF%B8%EC%A7%80_0708066.jpg)
+![이미지 0813001.jpg](/assets/RNN_GRU_LSTM/%EC%9D%B4%EB%AF%B8%EC%A7%80_0813001.jpg)
 
 ## 3) RNN 수식
 
