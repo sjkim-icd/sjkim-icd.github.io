@@ -20,13 +20,13 @@ last_modified_at: 2023-08-13
 
 # 1. RNN
 
-## <RNN의 개요>
+##  RNN의 개요
 
 - Recurrent Neural Net은 sequential data 처리에 적합한 모델
 - 순서도 데이터의 일부
 - speech, text, image의 특징은 데이터 나타날 위치가 중요한 경우임
 
-## <RNN 입출력 구조>
+##  RNN 입출력 구조
 
 ![이미지 0708065.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%EC%9D%B4%EB%AF%B8%EC%A7%80_0708065.jpg)
 
@@ -37,7 +37,7 @@ last_modified_at: 2023-08-13
 
 ![이미지 0708066.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%EC%9D%B4%EB%AF%B8%EC%A7%80_0708066.jpg)
 
-## <RNN 수식>
+##  RNN 수식
 
 - 수식을 살펴보면 셀 A에서 함수연산 일어나는데 전단계의 hidden state(h(t-1))에 매트릭스 W(h) 곱하고와 지금 단계의 입력값인 x(t)에 W(x) 곱해서 함수 연산을 통해 h(t)를 출력함
     - 이러한 A라는 함수에 대한 설계는 다양한데 유명하고 일반적인게 LSTM, GRU
@@ -50,7 +50,7 @@ last_modified_at: 2023-08-13
     ![이미지 0813003.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813003.jpg)
     
 
-**<RNN 수식 구성요소>**
+** RNN 수식 구성요소>**
 
 1) x(t): input at time t
 
@@ -77,7 +77,7 @@ last_modified_at: 2023-08-13
 - 새로운 입력(x(t-1))이 들어오면 이전 값을 0으로 초기화해서 같이 넣어서 네트워크 A로 들어가게 함 -> 이 둘을 합쳐서 output (h(t-1))을 만들고 이걸 다시 다음 input으로 넣음
 - 이전 정보와 현재 정보를 취합(concat)한 걸로 뉴럴넷에 들어가서 output이 됨
 
-## <가능한 RNN Tasks>
+##  가능한 RNN Tasks
 
 ![이미지 0708069.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%EC%9D%B4%EB%AF%B8%EC%A7%80_0708069.jpg)
 
@@ -105,7 +105,7 @@ sequence가 들어가서 sequence가 나오는 것
 
 RNN LSTM GRU는 4번 구조로 진행되어야 하는데 2)3)4) 모두 5)로 변환해서 처리해야함
 
-## **<RNN의 한계점>**
+## ** RNN의 한계점**
 
 - RNN은 오늘 종가로 내일 종가를 계산한다고 할 때 바로 직전만 쓰는게 아니라 전전, 전전전꺼가 필요한 것 과거가 계속 영향을 줌, 과거를 기억하는 뉴럴 네트워크임 → 과거와 현재 정보를 활용해서 예측하는 것
 - x1이 5번을 거친다고 할 때 w가 4번 곱해져야 함,  w가 1보다 작아지면 exponential decay가 됨
@@ -141,7 +141,7 @@ RNN의 한계점을 다시 정리하면
 
 - 다른 네트워크 구조를 제안 → Gated RNNs
 
-<Gated RNNs>
+ Gated RNNs>
 
 - 여기서 Gates는 수도꼭지 개념으로 gradient를 얼마나 열고 닫고를 할 것인지 , Input 정보와 State정보를 얼마나 열고 닫을 건지를 결정할 수 있는 것
 
@@ -155,7 +155,7 @@ RNN의 한계점을 다시 정리하면
 
 # 2. LSTM
 
-## <LTSM의 개요>
+##  LTSM의 개요
 
 - 1997년 제안되었으며, 장기의존성 문제를 해결하고 빠른 학습 속도의 장점이 있음
 
@@ -205,7 +205,7 @@ RNN의 한계점을 다시 정리하면
 
 ![이미지 0813006.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813006.jpg)
 
-## <LSTM 구조>
+##  LSTM 구조
 
 ![https://blog.kakaocdn.net/dn/uDG1k/btrJ7SES90G/Wd1ujDzWiTGyTyHSBeBHWK/img.jpg](https://blog.kakaocdn.net/dn/uDG1k/btrJ7SES90G/Wd1ujDzWiTGyTyHSBeBHWK/img.jpg)
 
@@ -223,7 +223,7 @@ RNN의 한계점을 다시 정리하면
 
 200 dim에서 100dim으로 가는 network가 됨
 
-## <LSTM 구성>
+##  LSTM 구성
 
 ![https://blog.kakaocdn.net/dn/bhaLV9/btrJ9tD6v56/eLKHGFU6QAuRPkGK5gJyvK/img.jpg](https://blog.kakaocdn.net/dn/bhaLV9/btrJ9tD6v56/eLKHGFU6QAuRPkGK5gJyvK/img.jpg)
 
@@ -250,7 +250,7 @@ RNN의 한계점을 다시 정리하면
 - Gate가 총 3가지로 있고, 이 3개의 조합으로 Long term & Short term을 둘 다 잘 고려함
 - **Core는 Cell state: 일종의 컨베이어 벨트 같은 것으로 지금까지의 정보를 잘 취합해서 cell state로 잘 흘러감**
 
-## <수식 구성요소>
+##  수식 구성요소
 
 1) W(f): weight of layer in forget gate
 
@@ -268,7 +268,7 @@ RNN의 한계점을 다시 정리하면
 
 8) W(hg): t-1 시점의 hidden state(h(t-1))에 연결된 레이어에 대한 weight matrix
 
-## <Gate 별 역할>
+##  Gate 별 역할
 
 ### **(1) Foget Gate: f(t)**
 
@@ -415,7 +415,7 @@ input(x(t))와 cell state와 hidden state가 들어가고 -> input gate, forget 
 
 # 3. GRU
 
-## <GRU 개요>
+##  GRU 개요
 
 - GRU는 2014년에 제안되었고, 기존 LSTM의 복잡하고 많은 연산을 개선한 간소한 버전임
 
@@ -425,7 +425,7 @@ input(x(t))와 cell state와 hidden state가 들어가고 -> input gate, forget 
 
 2) Cell State + Hidden State를 병합
 
-## <GRU 구조>
+##  GRU 구조
 
 ![이미지 0813007.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813007.jpg)
 
@@ -484,7 +484,7 @@ input(x(t))와 cell state와 hidden state가 들어가고 -> input gate, forget 
 
 (4) (3)의 결과 2가지를 더하여 최종으로 output을 계산하는데 이것은 hidden state 값이 된다.
 
-## <LSTM과 GRU 대응>
+##  LSTM과 GRU 대응
 
 ### LSTM
 
@@ -496,7 +496,7 @@ input(x(t))와 cell state와 hidden state가 들어가고 -> input gate, forget 
 
 ![이미지 0813016.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813016.jpg)
 
-## <GRU 수식>
+##  GRU 수식
 
 1) Gate는 z(t)와 r(t)로 2개로 구성
 
@@ -530,7 +530,7 @@ input(x(t))와 cell state와 hidden state가 들어가고 -> input gate, forget 
 
 # References
 
-**<RNN>**
+** RNN>**
 
  [https://www.youtube.com/watch?v=rbk9XFaoCEE](https://www.youtube.com/watch?v=rbk9XFaoCEE)
 
@@ -538,7 +538,7 @@ input(x(t))와 cell state와 hidden state가 들어가고 -> input gate, forget 
 
 [https://www.youtube.com/watch?v=6niqTuYFZLQ&list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv&index=11](https://www.youtube.com/watch?v=6niqTuYFZLQ&list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv&index=11)
 
-**<LSTM>**
+** LSTM>**
 
 [https://yjs-program.tistory.com/165](https://colab.research.google.com/corgiredirector?site=https%3A%2F%2Fyjs-program.tistory.com%2F165)
 
@@ -548,13 +548,13 @@ input(x(t))와 cell state와 hidden state가 들어가고 -> input gate, forget 
 
 [http://cs231n.stanford.edu/schedule.html](http://cs231n.stanford.edu/schedule.html)
 
-**<GRU>**
+** GRU>**
 
 [https://www.youtube.com/watch?v=pYRIOGTPRPU](https://www.youtube.com/watch?v=pYRIOGTPRPU)
 
 [https://velog.io/@lighthouse97/Gated-Recurrent-UnitGRU의-이해](https://velog.io/@lighthouse97/Gated-Recurrent-UnitGRU%EC%9D%98-%EC%9D%B4%ED%95%B4)
 
-<코드>
+ 코드>
 
 핸즈온머신러닝
 
