@@ -20,37 +20,37 @@ last_modified_at: 2023-08-13
 
 # 1. RNN
 
-##  RNN의 개요
+## 1) RNN의 개요
 
 - Recurrent Neural Net은 sequential data 처리에 적합한 모델
 - 순서도 데이터의 일부
 - speech, text, image의 특징은 데이터 나타날 위치가 중요한 경우임
 
-##  RNN 입출력 구조
+## 2) RNN 입출력 구조
 
-![이미지 0708065.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%EC%9D%B4%EB%AF%B8%EC%A7%80_0708065.jpg)
+![이미지 0708065.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%EC%9D%B4%EB%AF%B8%EC%A7%80_0708065.jpg)
 
 - Input: hello
 - 첫번째 입력값이 셀 A에서 처리되고 하나는 h0로 출력이 되고 다른 하나는 출력되지 않고 다음 셀로 전달됨(=hidden state) → 이 전의 입력값의 처리결과를 반영하여 데이터의 순서를 이해하게 됨 → h가 들어가면 답이 e
 - RNN은 모든 셀이 파라미터를 공유하므로 그림의 A가 하나이며, 긴 sequence가 들어와도 이를 처리하기 위한 셀은 A 하나임
 - 입력되는 단어가 짧은 hello 든 더 길든 → 셀 A에 들어가는 파라미터만 알고 있으면 다음 단어를 예측하는 모델을 정상적으로 작동함
 
-![이미지 0708066.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%EC%9D%B4%EB%AF%B8%EC%A7%80_0708066.jpg)
+![이미지 0708066.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%EC%9D%B4%EB%AF%B8%EC%A7%80_0708066.jpg)
 
-##  RNN 수식
+## 3) RNN 수식
 
 - 수식을 살펴보면 셀 A에서 함수연산 일어나는데 전단계의 hidden state(h(t-1))에 매트릭스 W(h) 곱하고와 지금 단계의 입력값인 x(t)에 W(x) 곱해서 함수 연산을 통해 h(t)를 출력함
     - 이러한 A라는 함수에 대한 설계는 다양한데 유명하고 일반적인게 LSTM, GRU
     - 셀A의 파라미터는 학습의 대상이기 때문에 구조가 복잡해질 수록 셀 학습이 학습되는 정도는 줄어듦 →복잡도는 LSTM > GRU > RNN
     
-    ![이미지 0813001.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813001.jpg)
+    ![이미지 0813001.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813001.jpg)
     
-    ![이미지 0813002.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813002.jpg)
+    ![이미지 0813002.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813002.jpg)
     
-    ![이미지 0813003.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813003.jpg)
+    ![이미지 0813003.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813003.jpg)
     
 
-** RNN 수식 구성요소>**
+### - **RNN 수식 구성요소**
 
 1) x(t): input at time t
 
@@ -70,16 +70,16 @@ last_modified_at: 2023-08-13
 
 5) g: activation fuction for the output layer
 
-![https://blog.kakaocdn.net/dn/yUQG8/btrJ7NXa8U6/ANiZwmUHNyMiuQaETeVCUk/img.jpg](https://blog.kakaocdn.net/dn/yUQG8/btrJ7NXa8U6/ANiZwmUHNyMiuQaETeVCUk/img.jpg)
+![이미지 0813024.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813024.jpg)
 
 - 스탠다드 RNN
 - Input:  직전 계산한 h와 현재 x
 - 새로운 입력(x(t-1))이 들어오면 이전 값을 0으로 초기화해서 같이 넣어서 네트워크 A로 들어가게 함 -> 이 둘을 합쳐서 output (h(t-1))을 만들고 이걸 다시 다음 input으로 넣음
 - 이전 정보와 현재 정보를 취합(concat)한 걸로 뉴럴넷에 들어가서 output이 됨
 
-##  가능한 RNN Tasks
+## 4) 가능한 RNN Tasks
 
-![이미지 0708069.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%EC%9D%B4%EB%AF%B8%EC%A7%80_0708069.jpg)
+![이미지 0708069.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%EC%9D%B4%EB%AF%B8%EC%A7%80_0708069.jpg)
 
 - RNN에 데이터 어떻게 넣어주고 출력값중 무엇을 취하느냐에 따라 다양한 task에 적용이 가능함
 
@@ -105,7 +105,7 @@ sequence가 들어가서 sequence가 나오는 것
 
 RNN LSTM GRU는 4번 구조로 진행되어야 하는데 2)3)4) 모두 5)로 변환해서 처리해야함
 
-## ** RNN의 한계점**
+## 5) **RNN의 한계점**
 
 - RNN은 오늘 종가로 내일 종가를 계산한다고 할 때 바로 직전만 쓰는게 아니라 전전, 전전전꺼가 필요한 것 과거가 계속 영향을 줌, 과거를 기억하는 뉴럴 네트워크임 → 과거와 현재 정보를 활용해서 예측하는 것
 - x1이 5번을 거친다고 할 때 w가 4번 곱해져야 함,  w가 1보다 작아지면 exponential decay가 됨
@@ -141,7 +141,7 @@ RNN의 한계점을 다시 정리하면
 
 - 다른 네트워크 구조를 제안 → Gated RNNs
 
- Gated RNNs>
+<Gated RNNs>
 
 - 여기서 Gates는 수도꼭지 개념으로 gradient를 얼마나 열고 닫고를 할 것인지 , Input 정보와 State정보를 얼마나 열고 닫을 건지를 결정할 수 있는 것
 
@@ -155,7 +155,7 @@ RNN의 한계점을 다시 정리하면
 
 # 2. LSTM
 
-##  LTSM의 개요
+## 1) LTSM의 개요
 
 - 1997년 제안되었으며, 장기의존성 문제를 해결하고 빠른 학습 속도의 장점이 있음
 
@@ -199,21 +199,21 @@ RNN의 한계점을 다시 정리하면
 
 ### 기존 RNN
 
-![이미지 0813005.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813005.jpg)
+![이미지 0813005.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813005.jpg)
 
 ### LSTM
 
-![이미지 0813006.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813006.jpg)
+![이미지 0813006.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813006.jpg)
 
-##  LSTM 구조
+## 2) LSTM 구조
 
-![https://blog.kakaocdn.net/dn/uDG1k/btrJ7SES90G/Wd1ujDzWiTGyTyHSBeBHWK/img.jpg](https://blog.kakaocdn.net/dn/uDG1k/btrJ7SES90G/Wd1ujDzWiTGyTyHSBeBHWK/img.jpg)
+![이미지 0813025.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813025.jpg)
 
 1) 노랑색 박스: 뉴럴 넷 레이어
 
 2) 동그라미: point wise operation: 12개에 12개면 각각을 12 dimension 만큼 곱해서 더하는 것
 
-![https://blog.kakaocdn.net/dn/bQqZDC/btrKdRqryhE/yhyX5ejQOVAsq5yYjAtts1/img.jpg](https://blog.kakaocdn.net/dn/bQqZDC/btrKdRqryhE/yhyX5ejQOVAsq5yYjAtts1/img.jpg)
+![이미지 0813026.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813026.jpg)
 
 (1) 초록 부분
 
@@ -223,9 +223,9 @@ RNN의 한계점을 다시 정리하면
 
 200 dim에서 100dim으로 가는 network가 됨
 
-##  LSTM 구성
+## 3) LSTM 구성
 
-![https://blog.kakaocdn.net/dn/bhaLV9/btrJ9tD6v56/eLKHGFU6QAuRPkGK5gJyvK/img.jpg](https://blog.kakaocdn.net/dn/bhaLV9/btrJ9tD6v56/eLKHGFU6QAuRPkGK5gJyvK/img.jpg)
+![이미지 0813027.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813027.jpg)
 
 ### **1) Input X(t):**
 
@@ -237,8 +237,9 @@ RNN의 한계점을 다시 정리하면
 - Cell State: 이전의 Hidden state와 함께 다음 레이어로 기존의 상태를 보존하여 전달
 - 거치는 부분이 거의 없으므로 backpropagation 할 때도 과거로 잘 전달됨
     
-    ![https://blog.kakaocdn.net/dn/V0nQ5/btrKbtQ6W86/uzBHBgs0SjiQkX7hEHOES1/img.jpg](https://blog.kakaocdn.net/dn/V0nQ5/btrKbtQ6W86/uzBHBgs0SjiQkX7hEHOES1/img.jpg)
+    ![이미지 0813028.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813028.jpg)
     
+
 - **시그마 -> x는 정보를 여닫는 Gate 역할을 함**
 
 ### **3) Hidden state:**
@@ -250,7 +251,7 @@ RNN의 한계점을 다시 정리하면
 - Gate가 총 3가지로 있고, 이 3개의 조합으로 Long term & Short term을 둘 다 잘 고려함
 - **Core는 Cell state: 일종의 컨베이어 벨트 같은 것으로 지금까지의 정보를 잘 취합해서 cell state로 잘 흘러감**
 
-##  수식 구성요소
+## 4) 수식 구성요소
 
 1) W(f): weight of layer in forget gate
 
@@ -268,7 +269,7 @@ RNN의 한계점을 다시 정리하면
 
 8) W(hg): t-1 시점의 hidden state(h(t-1))에 연결된 레이어에 대한 weight matrix
 
-##  Gate 별 역할
+## 5) Gate 별 역할
 
 ### **(1) Foget Gate: f(t)**
 
@@ -276,12 +277,13 @@ RNN의 한계점을 다시 정리하면
 - Decide what information we're going to throw away from the cell state
 - 과거의 정보를 얼만큼 버릴지, 가져와야할지를 결정
 - gate controller로, simoide를 통해 0~1사이의 값을 받게 되는데 0에 가까울 수록 이전 cell state 값이 0에 가까워지고 많은 정보를 잊어버림
-
-![https://blog.kakaocdn.net/dn/bMEUFU/btrJ8JtFN1S/yl5gW1aeKEOgLUrd4kwdH1/img.jpg](https://blog.kakaocdn.net/dn/bMEUFU/btrJ8JtFN1S/yl5gW1aeKEOgLUrd4kwdH1/img.jpg)
-
-![https://blog.kakaocdn.net/dn/boi2MQ/btrJ7TcLz98/YtJ6YwZWCfkfupZ5Kja9Fk/img.jpg](https://blog.kakaocdn.net/dn/boi2MQ/btrJ7TcLz98/YtJ6YwZWCfkfupZ5Kja9Fk/img.jpg)
-
-![https://blog.kakaocdn.net/dn/m1KjX/btrKdRRvhKP/A5Vm9j4tKHP4Lz51iOXmA1/img.jpg](https://blog.kakaocdn.net/dn/m1KjX/btrKdRRvhKP/A5Vm9j4tKHP4Lz51iOXmA1/img.jpg)
+    
+    ![이미지 0813029.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813029.jpg)
+    
+    ![이미지 0813030.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813030.jpg)
+    
+    ![이미지 0813031.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813031.jpg)
+    
 
 1) Forget Gate의 입력: 
 
@@ -332,9 +334,9 @@ RNN의 한계점을 다시 정리하면
 
 -  현재 cell state의 candidate
 
-![https://blog.kakaocdn.net/dn/KcUAW/btrJ7R0hCQF/x8qGQY4JUz4Z7EIrjkaPpk/img.jpg](https://blog.kakaocdn.net/dn/KcUAW/btrJ7R0hCQF/x8qGQY4JUz4Z7EIrjkaPpk/img.jpg)
+![이미지 0813032.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813032.jpg)
 
-![https://blog.kakaocdn.net/dn/qSwjh/btrJ7SkAVQ1/AXpaqPl1Hkw2EWbPHVadD0/img.jpg](https://blog.kakaocdn.net/dn/qSwjh/btrJ7SkAVQ1/AXpaqPl1Hkw2EWbPHVadD0/img.jpg)
+![이미지 0813033.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813033.jpg)
 
 3> Input Gate의 출력: 
 
@@ -361,9 +363,9 @@ RNN의 한계점을 다시 정리하면
 - Forget Gate로 이전 cell state를 얼마나 버릴지와, 
 Input Gate로 현재 cell state를 얼마나 업데이트 할지를 정해졌으니 그 후 그 둘을 더해주는 부분임
 
-![https://blog.kakaocdn.net/dn/kVlYb/btrJ8ndjkz8/hCeuqpEVDwUZPGPKUsfImk/img.jpg](https://blog.kakaocdn.net/dn/kVlYb/btrJ8ndjkz8/hCeuqpEVDwUZPGPKUsfImk/img.jpg)
+![이미지 0813033.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813033%201.jpg)
 
-![https://blog.kakaocdn.net/dn/bmEkc3/btrKdQ57vLr/gqsZbGmTgdPH8nYYSF9Pl1/img.jpg](https://blog.kakaocdn.net/dn/bmEkc3/btrKdQ57vLr/gqsZbGmTgdPH8nYYSF9Pl1/img.jpg)
+![이미지 0813035.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813035.jpg)
 
 - input_gate*curr_state + forget_gate*prev_state
 
@@ -383,13 +385,13 @@ Input Gate로 현재 cell state를 얼마나 업데이트 할지를 정해졌으
 
 - Input & Forget Gate로 나온 정보가 Cell state이고 Input & Forget & Cell 3개를 가지고 만든 정보를 합쳐서 Output Gate로 넘김
 
-![https://blog.kakaocdn.net/dn/byr9l8/btrKdQSBPbY/g845qdzkE3LBPRkNjpQRqK/img.jpg](https://blog.kakaocdn.net/dn/byr9l8/btrKdQSBPbY/g845qdzkE3LBPRkNjpQRqK/img.jpg)
+![이미지 0813036.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813036.jpg)
 
 - 최종적으로 얻어진 cell state의 값을 어떻게 밖으로 빼낼지를 결정함
 
-![https://blog.kakaocdn.net/dn/3bGLu/btrJ7bjVmI0/392iUQxTCNwvBJZzEGmtNK/img.jpg](https://blog.kakaocdn.net/dn/3bGLu/btrJ7bjVmI0/392iUQxTCNwvBJZzEGmtNK/img.jpg)
+![이미지 0813037.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813037.jpg)
 
-![이미지 0813004.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813004.jpg)
+![이미지 0813004.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813004.jpg)
 
 - O(t): 현재 cell state의 얼마만큼을 h(t)로 내보낼지 결정하는 역할
 
@@ -401,11 +403,11 @@ Input Gate로 현재 cell state를 얼마나 업데이트 할지를 정해졌으
 
 이 cell state에 있는 값을 어떻게 빼줄지임
 
-![https://blog.kakaocdn.net/dn/CiScA/btrKaxfcxuQ/O5As6iPX8Yjsl5MLuhKjR1/img.jpg](https://blog.kakaocdn.net/dn/CiScA/btrKaxfcxuQ/O5As6iPX8Yjsl5MLuhKjR1/img.jpg)
+![이미지 0813038.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813038.jpg)
 
 - 전체적인 과정을 정리하자면 아래와 같음
 
-![이미지 0813009.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813009.jpg)
+![이미지 0813009.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813009.jpg)
 
 input(x(t))와 cell state와 hidden state가 들어가고 -> input gate, forget gate, output gate를 통과하여
 
@@ -415,7 +417,7 @@ input(x(t))와 cell state와 hidden state가 들어가고 -> input gate, forget 
 
 # 3. GRU
 
-##  GRU 개요
+## 1) GRU 개요
 
 - GRU는 2014년에 제안되었고, 기존 LSTM의 복잡하고 많은 연산을 개선한 간소한 버전임
 
@@ -425,15 +427,15 @@ input(x(t))와 cell state와 hidden state가 들어가고 -> input gate, forget 
 
 2) Cell State + Hidden State를 병합
 
-##  GRU 구조
+## 2) GRU 구조
 
-![이미지 0813007.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813007.jpg)
+![이미지 0813007.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813007.jpg)
 
 1) LSTM의 c(t) cell state와 h(t) hidden state가 h(t)로 합쳐짐
 
 2) Reset Gate: r(t)
 
-![이미지 0813013.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813013.jpg)
+![이미지 0813013.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813013.jpg)
 
 - 이전 상태/정보 h(t-1)에서 얼만큼을  선택해서 내보낼지 제어함 
 
@@ -445,7 +447,7 @@ input(x(t))와 cell state와 hidden state가 들어가고 -> input gate, forget 
 
 3) Update Gate: z(t)
 
-![이미지 0813017.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813017.jpg)
+![이미지 0813017.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813017.jpg)
 
 - LSTM의 Forget Gate와 Input Gate를 병합하여, 과거 & 현재 정보를 얼마나 반영할지 구하는 단계
 
@@ -453,11 +455,11 @@ input(x(t))와 cell state와 hidden state가 들어가고 -> input gate, forget 
 
 - z(t)가 1이면 Forget Gate가 열리며, 0이면 Input Gate가 열림
 
-![이미지 0813018.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813018.jpg)
+![이미지 0813018.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813018.jpg)
 
 - h(t) 틸다는 reset gate를 사용하여 만들어짐
 
-![이미지 0813019.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813019.jpg)
+![이미지 0813019.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813019.jpg)
 
 - z(t)는 현재 입력 정보인 x(t)를 얼마나 반영할지를 결정하고
 
@@ -469,34 +471,34 @@ input(x(t))와 cell state와 hidden state가 들어가고 -> input gate, forget 
 
 - Reset Gate, Update Gate를 모두 적용하여 Hidden State를 계산함
 
-![이미지 0813008.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813008.jpg)
+![이미지 0813008.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813008.jpg)
 
-![이미지 0813018.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813018.jpg)
+![이미지 0813018.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813018.jpg)
 
 (1) 이전 정보인 h(t-1)에 reset gate인 r(t)를 곱하여 이전 정보 중 출력(h(t))로 내보낼 정보를 추려냄
 
 (2) 위의 결과에 tanh을 적용하여 -1~1 값으로 만듦
 
-![이미지 0813017.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813017.jpg)
+![이미지 0813017.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813017.jpg)
 
 (3) Update Gate인 z(t)는 (2)의 결과인 h(t) 틸다에 곱하여 현재 정보 중 내보낼 정보를 계산하며
 ,  (1-z(t))는 이전 정보인 h(t-1)에 곱하여 이전 정보 중 내보낼 값을 고른다.
 
 (4) (3)의 결과 2가지를 더하여 최종으로 output을 계산하는데 이것은 hidden state 값이 된다.
 
-##  LSTM과 GRU 대응
+## 3) LSTM과 GRU 대응
 
 ### LSTM
 
-![이미지 0813011.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813011.jpg)
+![이미지 0813011.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813011.jpg)
 
 ### GRU
 
-![이미지 0813012.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813012.jpg)
+![이미지 0813012.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813012.jpg)
 
-![이미지 0813016.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813016.jpg)
+![이미지 0813016.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813016.jpg)
 
-##  GRU 수식
+## 4) GRU 수식
 
 1) Gate는 z(t)와 r(t)로 2개로 구성
 
@@ -504,7 +506,7 @@ input(x(t))와 cell state와 hidden state가 들어가고 -> input gate, forget 
 
 - r(t): h(t-1) 제어하는 역할
 
-![이미지 0813008.jpg](/assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813008.jpg)
+![이미지 0813008.jpg]( /assets/RNN_GRU_LSTM/RNN%20LSTM%20GRU%2069d09e02e6ac48648e3c5d9a20224264/%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580_0813008.jpg)
 
 # 4. RNN/LSTM/GRU 정리
 
@@ -530,7 +532,7 @@ input(x(t))와 cell state와 hidden state가 들어가고 -> input gate, forget 
 
 # References
 
-** RNN>**
+**<RNN>**
 
  [https://www.youtube.com/watch?v=rbk9XFaoCEE](https://www.youtube.com/watch?v=rbk9XFaoCEE)
 
@@ -538,7 +540,7 @@ input(x(t))와 cell state와 hidden state가 들어가고 -> input gate, forget 
 
 [https://www.youtube.com/watch?v=6niqTuYFZLQ&list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv&index=11](https://www.youtube.com/watch?v=6niqTuYFZLQ&list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv&index=11)
 
-** LSTM>**
+**<LSTM>**
 
 [https://yjs-program.tistory.com/165](https://colab.research.google.com/corgiredirector?site=https%3A%2F%2Fyjs-program.tistory.com%2F165)
 
@@ -548,13 +550,13 @@ input(x(t))와 cell state와 hidden state가 들어가고 -> input gate, forget 
 
 [http://cs231n.stanford.edu/schedule.html](http://cs231n.stanford.edu/schedule.html)
 
-** GRU>**
+**<GRU>**
 
 [https://www.youtube.com/watch?v=pYRIOGTPRPU](https://www.youtube.com/watch?v=pYRIOGTPRPU)
 
 [https://velog.io/@lighthouse97/Gated-Recurrent-UnitGRU의-이해](https://velog.io/@lighthouse97/Gated-Recurrent-UnitGRU%EC%9D%98-%EC%9D%B4%ED%95%B4)
 
- 코드>
+<코드>
 
 핸즈온머신러닝
 
