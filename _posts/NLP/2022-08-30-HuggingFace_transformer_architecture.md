@@ -1,8 +1,8 @@
 ---
 title: "[Hugging Face] Transformers 모델 아키텍처"
 header:
-#   teaser: /assets/HF_pipeline/2022-08-28/%EC%9D%B4%EB%AF%B8%EC%A7%80_0827020.jpg
-#   overlay_image: /assets/HF_pipeline/2022-08-28/%EC%9D%B4%EB%AF%B8%EC%A7%80_0827020.jpg
+#   teaser: //assets/HF_pipeline/2022-08-28/%EC%9D%B4%EB%AF%B8%EC%A7%80_0827020.jpg
+#   overlay_image: //assets/HF_pipeline/2022-08-28/%EC%9D%B4%EB%AF%B8%EC%A7%80_0827020.jpg
   overlay_filter: 0.5
 
 categories:
@@ -22,7 +22,7 @@ last_modified_at: 2023-08-30
 
 # 1. ****A bit of Transformer history****
 
-![이미지 0830001.jpg](assets/HF_architecture/이미지 0830001.jpg)
+![이미지 0830001.jpg](/assets/HF_architecture/이미지 0830001.jpg)
 
 - 트랜스포머 아키텍쳐(Attention is All You Need)는 17년 6월에 나옴
 - 해당 아키텍처 연구의 초점은 machine translation이었음
@@ -91,25 +91,25 @@ last_modified_at: 2023-08-30
 
 - n개의 이전 단어를 후 다음 단어를 예측하는 경우, 여기서 출력할 예측값은 과거 와 현재 입력값에 의존하지만 미래 입력값에는 의존하지 않기 때문에 이것을 *causal language modeling* 이라고 함
     
-    ![이미지 0830002.jpg](assets/HF_architecture/이미지 0830002.jpg)
+    ![이미지 0830002.jpg](/assets/HF_architecture/이미지 0830002.jpg)
     
 
 **2) Another example: masked language modeling**
 
 - 문장에서 masked word를 예측하는 *masked language modeling*
     
-    ![이미지 0830003.jpg](assets/HF_architecture/이미지 0830003.jpg)
+    ![이미지 0830003.jpg](/assets/HF_architecture/이미지 0830003.jpg)
     
 
 # 3. ****Transformers are big models****
 
-![이미지 0830004.jpg](assets/HF_architecture/이미지 0830004.jpg)
+![이미지 0830004.jpg](/assets/HF_architecture/이미지 0830004.jpg)
 
 - 몇 가지 모델(ex:DistilBERT)을 제외하고, 더 나은 성능을 달성하기 위한 일반적인 전략은 모델의 크기와 사전 훈련된 데이터의 양을 늘리는 것임
 - pretrained model, 특히 큰 모델을 학습하려면 많은 양의 데이터가 필요함
 - 이는 시간과 컴퓨팅 리소스 면에서 비용이 많이 듦
     
-    ![이미지 0830005.jpg](assets/HF_architecture/이미지 0830005.jpg)
+    ![이미지 0830005.jpg](/assets/HF_architecture/이미지 0830005.jpg)
     
 - 대규모 모델 학습은 사진에서 보듯 environmental impact도 야기함
 - 대규모의 사전 학습을 실행할 때 배출되는 이산화탄소의 양을 보여줌
@@ -125,7 +125,7 @@ last_modified_at: 2023-08-30
 - Pretraining은 모델을 처음부터 학습하는 작업임
 - 모델의 가중치(weight)는 무작위로 초기화되고, 사전 지식(prior knowledge)이 없이 학습이 시작됨
     
-    ![이미지 0830006.jpg](assets/HF_architecture/이미지 0830006.jpg)
+    ![이미지 0830006.jpg](/assets/HF_architecture/이미지 0830006.jpg)
     
 
 - pretraining은 매우 많은 양의 데이터가 필요함
@@ -150,7 +150,7 @@ last_modified_at: 2023-08-30
 - fine-tuning에는 제한된 양의 데이터만 필요함
 - 사전 학습된 모델이 획득한 지식은 transferred되므로 *전이 학습(transfer learning)* 이라는 용어를 사용함
 
-![이미지 0830007.jpg](assets/HF_architecture/이미지 0830007.jpg)
+![이미지 0830007.jpg](/assets/HF_architecture/이미지 0830007.jpg)
 
 - 따라서 모델을 fine-tuning하면 time, data, financial, environmental 비용이 절감됨
 - 또한 학습 과정이 전체 pretraining보다 제약이 적기 때문에, 보다 쉽고 빠르게 다양한 미세 조정 작업을 반복할 수 있음
@@ -162,7 +162,7 @@ last_modified_at: 2023-08-30
 
 ## 1) **개요 (Introduction)**
 
-![이미지 0830008.jpg](assets/HF_architecture/이미지 0830008.jpg)
+![이미지 0830008.jpg](/assets/HF_architecture/이미지 0830008.jpg)
 
 - 모델은 두 개의 블록으로 구성됨
 
@@ -226,7 +226,7 @@ while the **decoder receives the same sentences** in the **desired target langua
 - 학습 도중 속도를 높이기 위해, 디코더(decoder)는 전체 대상 문장(target sentences)을 입력으로 받지만, 이 중에서 미래 단어(현재 디코딩 대상 단어의 이후에 나타나는 단어들)를 사용하는 것은 허용되지 않음
 - 두 번째 위치에 나타나는 단어를 예측하려고 할 때, 두 번째 위치의 정답 단어를 바로 접근할 수 있다면 학습이 제대로 진행되지 않을 것임. 예를 들어, 네 번째 단어를 예측하려고 할 때 어텐션 계층은 첫 번째에서 세번째 까지의 단어들에만 주의를 집중할 수 있습니다.
 
-![이미지 0830010.jpg](assets/HF_architecture/이미지 0830010.jpg)
+![이미지 0830010.jpg](/assets/HF_architecture/이미지 0830010.jpg)
 
 - Transformer 아키텍처: 왼쪽에 인코더, 오른쪽에 디코더
 - the **first attention layer** in a decoder block pays attention to **all (past) inputs** to the decoder, but **the second attention layer** uses the **output of the encoder.** It can thus access the whole input sentence to best predict the current word.
