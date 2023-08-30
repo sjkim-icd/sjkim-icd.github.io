@@ -18,9 +18,9 @@ last_modified_at: 2023-08-30
 ---
 
 
-# ****How do Transformers work?****
+# **How do Transformers work?**
 
-# 1. ****A bit of Transformer history****
+# 1. **A bit of Transformer history**
 
 ![이미지 0830001.jpg](/assets/HF_architecture/이미지 0830001.jpg)
 
@@ -77,7 +77,7 @@ last_modified_at: 2023-08-30
 
 → 이후에 다룰 예정
 
-# 2. ****Transformers are language models****
+# 2. **Transformers are language models**
 
 - Transformer 모델(GPT, BERT, BART, T5 등)은 *language model* 로 학습됨
 - 해당 모델들이 self-supervised learning 방식으로 large amounts of raw text에 대해 학습됨
@@ -101,7 +101,7 @@ last_modified_at: 2023-08-30
     ![이미지 0830003.jpg](/assets/HF_architecture/이미지 0830003.jpg)
     
 
-# 3. ****Transformers are big models****
+# 3. **Transformers are big models**
 
 ![이미지 0830004.jpg](/assets/HF_architecture/이미지 0830004.jpg)
 
@@ -118,7 +118,7 @@ last_modified_at: 2023-08-30
 - 이러한 이유로 언어 모델을 공유해야만 함
 - 학습된 가중치(weights)를 공유하고 이미 학습된 가중치를 기반으로 fine-tuning하여 모델을 만들면 커뮤니티의 전체 컴퓨팅 비용과 탄소 발자국(carbon footprint)을 줄일 수 있음
 
-# 4. ****Transfer Learning****
+# 4. **Transfer Learning**
 
 ## 1) Pretraining
 
@@ -156,7 +156,7 @@ last_modified_at: 2023-08-30
 - 또한 학습 과정이 전체 pretraining보다 제약이 적기 때문에, 보다 쉽고 빠르게 다양한 미세 조정 작업을 반복할 수 있음
 - 자신이 원하는 최종 task에 필요한 데이터가 충분치 않을 경우, fine-tuning 과정에서 처음부터 학습하는 방법보다 더 나은 결과를 얻을 수 있음. 이로 인해 pre trainied 모델을 활용하고 이를 fine tuning하는 과정이 필요함
 
-# 5. ****General architecture****
+# 5. **General architecture**
 
 - Transformer 모델의 일반적인 아키텍처를 살펴보고자 함.
 
@@ -192,7 +192,7 @@ last_modified_at: 2023-08-30
 
 - translation 이나 summarization과 같이 입력이 수반되는 generative tasks에 적합함
 
-## 2) ****Attention layers****
+## 2) **Attention layers**
 
 - Transformer 모델의 가장 중요한 특징은 *어텐션 레이어(attention layers)* 라는 특수 레이어로 구축된다는 부분
 - attention layer**가 각 단어의 표현을 처리할 때, 문장의 특정 단어들에 특별한 주의를 기울이고 나머지는 거의 무시하도록 모델에 지시함**
@@ -209,7 +209,7 @@ last_modified_at: 2023-08-30
 
 단어 자체가 고유한 의미를 가지고 있지만 그 의미는 주변 문맥 (context)에 의해 크게 영향을 받으며, 컨텍스트는 처리 중인 단어 앞이나 뒤에 존재하는 다른 단어들을 포함할 수 있음
 
-## 3) ****The original architecture****
+## 3) **The original architecture**
 
 - Transformer 아키텍처는 번역용으로 설계됨
 - During training, **the encoder receives inputs (sentences) in a certain language**, 
@@ -236,7 +236,7 @@ while the **decoder receives the same sentences** in the **desired target langua
 - The *attention mask* can also be used in the encoder/decoder to prevent the model from paying attention to some special words — for instance, the special padding word used to make all the inputs the same length when batching together sentences.
 - *어텐션 마스크(Attention mask)* 는 인코더/디코더에서 모델이 특정 단어에 주의를 집중하는 것을 방지하는 데 사용할 수 있음. 예를 들어, 문장을 일괄 처리(batching)할 때 모든 입력을 동일한 길이로 만들기 위해서 사용되는 특수 패딩 단어(padding word)에 적용할 수 있음
 
-## 4) ****Architectures vs. checkpoints****
+## 4) **Architectures vs. checkpoints**
 
 *아키텍처(architecture), 체크포인트(checkpoint)*, 모*델(model)* 용어
 
