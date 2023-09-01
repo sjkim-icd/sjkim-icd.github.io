@@ -17,12 +17,11 @@ date: 2023-08-30
 last_modified_at: 2023-08-30
 ---
 
+# ****How do Transformers work?****
 
-# **How do Transformers work?**
+# 1. ****A bit of Transformer history****
 
-# 1. **A bit of Transformer history**
-
-![이미지 0830001.jpg](/assets/HF_architecture/이미지 0830001.jpg)
+![이미지 0830001.jpg](/assets/HF_C1/이미지 0830001.jpg)
 
 - 트랜스포머 아키텍쳐(Attention is All You Need)는 17년 6월에 나옴
 - 해당 아키텍처 연구의 초점은 machine translation이었음
@@ -77,7 +76,7 @@ last_modified_at: 2023-08-30
 
 → 이후에 다룰 예정
 
-# 2. **Transformers are language models**
+# 2. ****Transformers are language models****
 
 - Transformer 모델(GPT, BERT, BART, T5 등)은 *language model* 로 학습됨
 - 해당 모델들이 self-supervised learning 방식으로 large amounts of raw text에 대해 학습됨
@@ -91,25 +90,25 @@ last_modified_at: 2023-08-30
 
 - n개의 이전 단어를 후 다음 단어를 예측하는 경우, 여기서 출력할 예측값은 과거 와 현재 입력값에 의존하지만 미래 입력값에는 의존하지 않기 때문에 이것을 *causal language modeling* 이라고 함
     
-    ![이미지 0830002.jpg](/assets/HF_architecture/이미지 0830002.jpg)
+    ![이미지 0830002.jpg](/assets/HF_C1/이미지 0830002.jpg)
     
 
 **2) Another example: masked language modeling**
 
 - 문장에서 masked word를 예측하는 *masked language modeling*
     
-    ![이미지 0830003.jpg](/assets/HF_architecture/이미지 0830003.jpg)
+    ![이미지 0830003.jpg](/assets/HF_C1/이미지 0830003.jpg)
     
 
-# 3. **Transformers are big models**
+# 3. ****Transformers are big models****
 
-![이미지 0830004.jpg](/assets/HF_architecture/이미지 0830004.jpg)
+![이미지 0830004.jpg](/assets/HF_C1/이미지 0830004.jpg)
 
 - 몇 가지 모델(ex:DistilBERT)을 제외하고, 더 나은 성능을 달성하기 위한 일반적인 전략은 모델의 크기와 사전 훈련된 데이터의 양을 늘리는 것임
 - pretrained model, 특히 큰 모델을 학습하려면 많은 양의 데이터가 필요함
 - 이는 시간과 컴퓨팅 리소스 면에서 비용이 많이 듦
     
-    ![이미지 0830005.jpg](/assets/HF_architecture/이미지 0830005.jpg)
+    ![이미지 0830005.jpg](/assets/HF_C1/이미지 0830005.jpg)
     
 - 대규모 모델 학습은 사진에서 보듯 environmental impact도 야기함
 - 대규모의 사전 학습을 실행할 때 배출되는 이산화탄소의 양을 보여줌
@@ -118,14 +117,14 @@ last_modified_at: 2023-08-30
 - 이러한 이유로 언어 모델을 공유해야만 함
 - 학습된 가중치(weights)를 공유하고 이미 학습된 가중치를 기반으로 fine-tuning하여 모델을 만들면 커뮤니티의 전체 컴퓨팅 비용과 탄소 발자국(carbon footprint)을 줄일 수 있음
 
-# 4. **Transfer Learning**
+# 4-1. ****Transfer Learning****
 
 ## 1) Pretraining
 
 - Pretraining은 모델을 처음부터 학습하는 작업임
 - 모델의 가중치(weight)는 무작위로 초기화되고, 사전 지식(prior knowledge)이 없이 학습이 시작됨
     
-    ![이미지 0830006.jpg](/assets/HF_architecture/이미지 0830006.jpg)
+    ![이미지 0830006.jpg](/assets/HF_C1/이미지 0830006.jpg)
     
 
 - pretraining은 매우 많은 양의 데이터가 필요함
@@ -150,19 +149,76 @@ last_modified_at: 2023-08-30
 - fine-tuning에는 제한된 양의 데이터만 필요함
 - 사전 학습된 모델이 획득한 지식은 transferred되므로 *전이 학습(transfer learning)* 이라는 용어를 사용함
 
-![이미지 0830007.jpg](/assets/HF_architecture/이미지 0830007.jpg)
+![이미지 0830007.jpg](/assets/HF_C1/이미지 0830007.jpg)
 
 - 따라서 모델을 fine-tuning하면 time, data, financial, environmental 비용이 절감됨
 - 또한 학습 과정이 전체 pretraining보다 제약이 적기 때문에, 보다 쉽고 빠르게 다양한 미세 조정 작업을 반복할 수 있음
 - 자신이 원하는 최종 task에 필요한 데이터가 충분치 않을 경우, fine-tuning 과정에서 처음부터 학습하는 방법보다 더 나은 결과를 얻을 수 있음. 이로 인해 pre trainied 모델을 활용하고 이를 fine tuning하는 과정이 필요함
 
-# 5. **General architecture**
+# 4-2. (lecture) ****What is Transfer Learning? with Sylvain****
+
+![이미지 0831001.jpg](/assets/HF_C1/이미지 0831001.jpg)
+
+- transfer learning은 다른 작업에 대해 많은 데이터로 훈련된 모델에서 얻은 지식을 확용하는 것임
+    
+    ![이미지 0831002.jpg](/assets/HF_C1/이미지 0831002.jpg)
+    
+- 모델 A는 task A를 위해 train되는데 다른 task를 위해 모델 B를 학습하고 싶다고 가정해보면
+한가지 방법은 모델 B를 처음부터 학습시키는 것이고, 두번째는 모델 A와 동일한 가중치로 모델 B를 초기화하여 모델 A에 대한 지식을 모델 B에 전달 할 수 있음
+
+![이미지 0831003.jpg](/assets/HF_C1/이미지 0831003.jpg)
+
+- scratch부터 학습할 때 모든 모델의 가중치는 무작위로 초기화됨 → 해당 예에서는 두 문장이 유사한지 여부를 인식하는 작업에 대해 BERT 모델을 train 시킴
+- 왼쪽은 처음부터, 오른쪽은 사전학습된 모델을 fine tuning함 → 전이학습과 사전학습된 모델을 사용하면 더 나은 결과를 얻을 수 있음 → 70  VS 86
+- 사전 훈련된 모델은 사전 훈련 중에 사용된 언어에 대한 통계적 이해를 모델에 제공하는 대량의 데이터에 대해 훈련되기 때문임
+    
+    ![이미지 0831004.jpg](/assets/HF_C1/이미지 0831004.jpg)
+    
+- 컴퓨터 비전에서는 전이 학습이 지난 10년간 성공적으로 적용되었음
+- 모델은 120만장의 사진 이미지를 가진 ImageNet으로 사전학습된 경우가 많음
+- 각 이미지는 천개 라벨 중 하나로 분류됨
+- 라벨이 지정된 데이터에 대한 이와 같은 학습을 지도 학습이라고 함
+- 자연어처리에서는 전이학습이 좀 최근에 이루어짐
+- ImageNet과의 주요 차이점은 사전 학습이 self supervised learning으로 이루어진다는 점임, 사람이 라벨을 따로 달 필요가 없음
+    
+    ![이미지 0831005.jpg](/assets/HF_C1/이미지 0831005.jpg)
+    
+- 사전학습의 일반적인 task 중 하나는 문장의 다음 단어를 추측하는 것인데 수많은 텍스트가 필요함
+- 예를 들어 GPT-2는 사용자가 Reddit에 게시한 4500만개의 링크 콘텐츠를 사용하여 사전학습됨
+    
+    ![이미지 0831006.jpg](/assets/HF_C1/이미지 0831006.jpg)
+    
+- self supervised learning으로 사전학습된 것의 또 다른 task는 무작위로 마스크된 단어의 값을 예측하는 것임 ⇒ 빈칸 채우기 테스트와 유사함
+- BERT는 영어 위키피디아와 11,000권의 미출판 도서를 사용하여 이런 방식으로 사전 학습됨
+    
+    ![이미지 0831007.jpg](/assets/HF_C1/이미지 0831007.jpg)
+    
+- 전이 학습은 헤드, 즉 사전 학습 목표에 초점을 맞춘 마지막 레이어를 버리고 현재 task에 적합한 무작위로 초기화된 새로운 헤드로 대체하여 특정 모델에 적용됨
+- 예를 들어 이전에 BERT 모델을 fine tuning할 때 마스크 단어를 분류하는 헤드를 제거하고 작업에 레이블이 두 개 있었기 때문에 이를 출력이 2개인 분류기로 대체함
+- 최대한 효율적으로 사용하려면 사전 학습된 모델이 finetuning 되는 작업과 최대한 유사해야함
+- 예를 들어, 독일어 문장을 분류하는 것이 문제라면 독일어 사전 학습 모델을 사용하는 것이 가장 좋음
+- 사전훈련된 모델은 지식 뿐만 아니라 포함된 bias도 같이 전달함
+    
+    ![이미지 0831008.jpg](/assets/HF_C1/이미지 0831008.jpg)
+    
+- ImageNet에는 대부분 미국과 서유럽에서 가져온 이미지가 포함되어 있으므로 이 모델을 사용해 fine tuning된 모델은 이러한 국가의 이미지에서 나은 성능을 보여줌
+
+![이미지 0831009.jpg](/assets/HF_C1/이미지 0831009.jpg)
+
+- OpenAI는 GPT-3 모델 예측 편향을 연구했는데
+- 다음 작업 목표 추측을 사용하여 사전 훈련됨
+- 프롬프트의 성별을 ‘그는 매우 그랬습니다’에서 ‘그녀는 매우 그랬습니다’로 변경하면 예측이 대부분 중립적인 형용사에서 phisical 형용사로만 변경됨
+- OpenAI는 GPT-s 모델의 모델 카드에서도 bias를 인정하고 인간과 상호작용하는 시스템에서의 사용은 권장하지 않음
+
+[https://www.youtube.com/watch?v=BqqfQnyjmgg](https://www.youtube.com/watch?v=BqqfQnyjmgg)
+
+# 5-1. ****General architecture****
 
 - Transformer 모델의 일반적인 아키텍처를 살펴보고자 함.
 
 ## 1) **개요 (Introduction)**
 
-![이미지 0830008.jpg](/assets/HF_architecture/이미지 0830008.jpg)
+![이미지 0830008.jpg](/assets/HF_C1/이미지 0830008.jpg)
 
 - 모델은 두 개의 블록으로 구성됨
 
@@ -192,7 +248,7 @@ last_modified_at: 2023-08-30
 
 - translation 이나 summarization과 같이 입력이 수반되는 generative tasks에 적합함
 
-## 2) **Attention layers**
+## 2) ****Attention layers****
 
 - Transformer 모델의 가장 중요한 특징은 *어텐션 레이어(attention layers)* 라는 특수 레이어로 구축된다는 부분
 - attention layer**가 각 단어의 표현을 처리할 때, 문장의 특정 단어들에 특별한 주의를 기울이고 나머지는 거의 무시하도록 모델에 지시함**
@@ -209,7 +265,7 @@ last_modified_at: 2023-08-30
 
 단어 자체가 고유한 의미를 가지고 있지만 그 의미는 주변 문맥 (context)에 의해 크게 영향을 받으며, 컨텍스트는 처리 중인 단어 앞이나 뒤에 존재하는 다른 단어들을 포함할 수 있음
 
-## 3) **The original architecture**
+## 3) ****The original architecture****
 
 - Transformer 아키텍처는 번역용으로 설계됨
 - During training, **the encoder receives inputs (sentences) in a certain language**, 
@@ -226,7 +282,7 @@ while the **decoder receives the same sentences** in the **desired target langua
 - 학습 도중 속도를 높이기 위해, 디코더(decoder)는 전체 대상 문장(target sentences)을 입력으로 받지만, 이 중에서 미래 단어(현재 디코딩 대상 단어의 이후에 나타나는 단어들)를 사용하는 것은 허용되지 않음
 - 두 번째 위치에 나타나는 단어를 예측하려고 할 때, 두 번째 위치의 정답 단어를 바로 접근할 수 있다면 학습이 제대로 진행되지 않을 것임. 예를 들어, 네 번째 단어를 예측하려고 할 때 어텐션 계층은 첫 번째에서 세번째 까지의 단어들에만 주의를 집중할 수 있습니다.
 
-![이미지 0830010.jpg](/assets/HF_architecture/이미지 0830010.jpg)
+![이미지 0830010.jpg](/assets/HF_C1/이미지 0830010.jpg)
 
 - Transformer 아키텍처: 왼쪽에 인코더, 오른쪽에 디코더
 - the **first attention layer** in a decoder block pays attention to **all (past) inputs** to the decoder, but **the second attention layer** uses the **output of the encoder.** It can thus access the whole input sentence to best predict the current word.
@@ -236,7 +292,7 @@ while the **decoder receives the same sentences** in the **desired target langua
 - The *attention mask* can also be used in the encoder/decoder to prevent the model from paying attention to some special words — for instance, the special padding word used to make all the inputs the same length when batching together sentences.
 - *어텐션 마스크(Attention mask)* 는 인코더/디코더에서 모델이 특정 단어에 주의를 집중하는 것을 방지하는 데 사용할 수 있음. 예를 들어, 문장을 일괄 처리(batching)할 때 모든 입력을 동일한 길이로 만들기 위해서 사용되는 특수 패딩 단어(padding word)에 적용할 수 있음
 
-## 4) **Architectures vs. checkpoints**
+## 4) ****Architectures vs. checkpoints****
 
 *아키텍처(architecture), 체크포인트(checkpoint)*, 모*델(model)* 용어
 
@@ -255,3 +311,47 @@ while the **decoder receives the same sentences** in the **desired target langua
 - 강좌에서는 표기의 명확성이 필요할 경우 모델이라는 용어보다는 아키텍처(architecture) 또는 체크포인트(checkpoint)를 주로 사용할 예정
 
 → 예를 들어, BERT는 아키텍처(architecture)이고 BERT의 첫 번째 릴리스를 위해 Google 팀에서 학습한 가중치 세트(set of weights)인 **bert-base-cased** 는 체크포인트(checkpoint)임. 하지만, "BERT 모델(BERT model)"과 "**bert-base-cased**"도 모델이라고 말할 수도 있음
+
+# 5-2. (lecture) The Transformer architecture with Lysandre
+
+![이미지 0831010.jpg](/assets/HF_C1/이미지 0831010.jpg)
+
+- Transformer의 네트워크를 구성하는 요소를 이해하고 자 함
+    
+    ![이미지 0831011.jpg](/assets/HF_C1/이미지 0831011.jpg)
+    
+- 트랜스포머의 원논문의 figure인데 작업하려는 task에 따로 일부를 따서 활용할 수 있음
+- 이 아키텍처를 활용하는 다양한 방법을 이해하고자 노력해보려고 함
+    
+    ![이미지 0831012.jpg](/assets/HF_C1/이미지 0831012.jpg)
+    
+- 왼쪽은 인코더, 오른쪽은 디코더
+- 이 두가지는 함께 사용될 수도 있지만 독립적으로 사용할 수도 있음
+
+## 인코더
+
+![이미지 0831013.jpg](/assets/HF_C1/이미지 0831013.jpg)
+
+- 인코더는 텍스트 입력을 받아들임 → 이 텍스트 즉 , 단어를 숫자 표현으로 변환함
+- 이 숫자 표현은 임베딩 또는 feature라고 함
+- self-attention 매커니즘과 bi directional property
+
+## 디코더
+
+![이미지 0831014.jpg](/assets/HF_C1/이미지 0831014.jpg)
+
+- 인코더와 동일한 입력을 받을 수 있음
+- 이는 마스크된 self-attention인 인코더와 유사한 매커니즘을 사용함
+- 단방향 속성으로 인해 인코더와 다르며, auto regressive를 사용함
+
+## 인코더-디코더
+
+![이미지 0831015.jpg](/assets/HF_C1/이미지 0831015.jpg)
+
+- 두 부분을 결합하면 인코더-디코더 변환기가 생성됨
+- 인코더는 입력을 받아들이고 해당 입력의 high level representation을 계산함
+- 그리고 이 출력을 디코더로 전달함
+- 디코더는 예측을 생성하기 위해 다른 입력과 함께 인코더의 출력을 사용함
+- 그런 다음 출력을 예측하여 향후 반복적으로 재사용하므로 auto regressive라는 표현을 사용함
+
+[https://www.youtube.com/watch?v=H39Z_720T5s&t=6s](https://www.youtube.com/watch?v=H39Z_720T5s&t=6s)

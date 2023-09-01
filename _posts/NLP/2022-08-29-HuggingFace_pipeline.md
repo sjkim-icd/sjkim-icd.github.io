@@ -16,25 +16,25 @@ toc_sticky: true
 date: 2023-08-29
 last_modified_at: 2023-08-29
 ---
-# [Hugging Face] NLP Task와 Transformers 라이브러리 pipeline 활용 사례
+# [Hugging Face][C-1] NLP Task와 Transformers 라이브러리 pipeline 활용 사례
 
 - Hugging Face의 Transformers, Datasets, Tokenizer, Accelerate 라이브러리, NLP에 대해 다루는 강의를 듣고 정리하고자 함
 - Course1 트랜스포머 中 NLP와 **Transformers, what can they do?에 대한 내용을 정리함**
 
 # 0. Welcome to the Hugging Face Course
 
-![이미지 0829127.jpg](/assets/HF_pipeline/이미지 0829127.jpg)
+![이미지 0829127.jpg](/assets/HF_C1/이미지 0829127.jpg)
 
 - Hugging Face의 course는 다음과 같음
     
-    ![이미지 0829128.jpg](/assets/HF_pipeline/이미지 0829128.jpg)
+    ![이미지 0829128.jpg](/assets/HF_C1/이미지 0829128.jpg)
     
 - Introduction, Diving in, Advanced로 나눠짐
 - 1장에서 4장까지는 Transformers 라이브러리의 주요 개념 소개, Hugging Face Hub의 모델 사용 방법이나 데이터셋을 통한 fine tuning 및 Hub에 결과 공유하는 방법을 익히게 됨
 - 5장에서 8장까지는 Datasets와 Tokenizers의 기초 숙지, 주요 NLP task를 다룸
 - 9장에서 12장은 메모리 효율화 및 long sequences 문제 등 use case를 위한 custom objects를 사용하는 방법을 배움
 
-![이미지 0829129.jpg](/assets/HF_pipeline/이미지 0829129.jpg)
+![이미지 0829129.jpg](/assets/HF_C1/이미지 0829129.jpg)
 
 - 챕터1 제외하고는 python과 DL 내용은 알고 있어야 함
 
@@ -84,7 +84,7 @@ last_modified_at: 2023-08-29
 - 트랜스포머 모델은 모든 종류의 NLP 작업을 해결하는 데 사용됨
 - Hugging Face 및 트랜스포머 모델을 사용하는 회사, 해당 회사들은 회사가 만든 모델들을 공유함
     
-    ![이미지 0829130.jpg](/assets/HF_pipeline/이미지 0829130.jpg)
+    ![이미지 0829130.jpg](/assets/HF_C1/이미지 0829130.jpg)
     
 
 **(1) Hugging Face의 Transformers 라이브러리 GIT**
@@ -116,15 +116,15 @@ classifier("I've been waiting for a HuggingFace course my whole life.")
 
 - pipeline 안에 task 내용과 문장을 입력함
     
-    ![이미지 0829131.jpg](/assets/HF_pipeline/이미지 0829131.jpg)
+    ![이미지 0829131.jpg](/assets/HF_C1/이미지 0829131.jpg)
     
 - sentiment-analysis로 지정한 후에 문장을 넣었더니 POSITIVE하다고 판단 해줌
     
-    ![이미지 0829132.jpg](/assets/HF_pipeline/이미지 0829132.jpg)
+    ![이미지 0829132.jpg](/assets/HF_C1/이미지 0829132.jpg)
     
 - 2개의 문장을 넣었을 때도 각각 어떤지 판단 해줌
     
-    ![이미지 0829133.jpg](/assets/HF_pipeline/이미지 0829133.jpg)
+    ![이미지 0829133.jpg](/assets/HF_C1/이미지 0829133.jpg)
     
 - 한국어도 잘 판단해줌
 - pipeline은 영어 문장에 sentiment analysis을 위해 fine-tuned pretrained model을 사용함
@@ -174,7 +174,7 @@ classifier(
 )
 ```
 
-![이미지 0829134.jpg](/assets/HF_pipeline/이미지 0829134.jpg)
+![이미지 0829134.jpg](/assets/HF_C1/이미지 0829134.jpg)
 
 - 위 결과와 같이 해당 문장에 대해 label을 교육, 비즈니스, 정치로 하였는데 각각에 대해서 보여줄 수 있음
 - 완전히 다른 새로운 레이블 집합으로 문장 분류를 수행할 때도 새로운 데이터를 이용해서 모델을 fine-tuning할 필요가 없기 때문에 *zero-shot* 분류라고 함
@@ -192,13 +192,13 @@ generator = pipeline("text-generation")
 generator("In this course, we will teach you how to")
 ```
 
-![이미지 0829135.jpg](/assets/HF_pipeline/이미지 0829135.jpg)
+![이미지 0829135.jpg](/assets/HF_C1/이미지 0829135.jpg)
 
 - generator 객체에
 - num_return_sequences→ 생성 시퀀스 갯수 지정
 - max_length → 출력 텍스트 총 길이
     
-    ![이미지 0829137.jpg](/assets/HF_pipeline/이미지 0829137.jpg)
+    ![이미지 0829137.jpg](/assets/HF_C1/이미지 0829137.jpg)
     
 - 파라미터를 각각 2,5로 지정해서 수행
 
@@ -207,7 +207,7 @@ generator("In this course, we will teach you how to")
 - 이전까진 task에 대한 default model이 작동되었음
 - Model Hub에 있는 모델을 지정할 수 있음
     
-    ![이미지 0829138.jpg](/assets/HF_pipeline/이미지 0829138.jpg)
+    ![이미지 0829138.jpg](/assets/HF_C1/이미지 0829138.jpg)
     
 - Model Hub에 가서 원하는 task에 대한 tag를 선택하면 사용할 수 있는 모델이 표시됨(여기서는 Text Generation)
 - 예제로 distilgpt2를 사용하자
@@ -224,25 +224,25 @@ generator(
 )
 ```
 
-![이미지 0829139.jpg](/assets/HF_pipeline/이미지 0829139.jpg)
+![이미지 0829139.jpg](/assets/HF_C1/이미지 0829139.jpg)
 
 - distilgpt2를 사용한 결과
 
-![이미지 0829140.jpg](/assets/HF_pipeline/이미지 0829140.jpg)
+![이미지 0829140.jpg](/assets/HF_C1/이미지 0829140.jpg)
 
 - Model Hub에서 language tags를 클릭하여 그 언어에 특화된 모델을 세부적으로 검색하고 선택함으로써 원하는 언어로 표현된 텍스트를 생성할 수 있는 모델을 사용할 수 있음
     - Model Hub에는 다중 언어를 지원하는 다국어 모델(multilingual models)에 대해서도 포함됨
     
-    ![이미지 0829143.jpg](/assets/HF_pipeline/이미지 0829143.jpg)
+    ![이미지 0829143.jpg](/assets/HF_C1/이미지 0829143.jpg)
     
 - 한국어로 체크하고 download 최대를 보았더니 skt가 있어서 해당 모델 살펴봄
     
-    ![이미지 0829145.jpg](/assets/HF_pipeline/이미지 0829145.jpg)
+    ![이미지 0829145.jpg](/assets/HF_C1/이미지 0829145.jpg)
     
     - 특정 모델을 클릭하여 선택하면 온라인에서 직접 테스트할 수 있는 위젯(widget)이 표시됨 이렇게 하면 다운로드하기 전에 그 모델의 기능을 빠르게 테스트할 수 있음
 - 파랑색이 generation한 부분
     
-    ![이미지 0829146.jpg](/assets/HF_pipeline/이미지 0829146.jpg)
+    ![이미지 0829146.jpg](/assets/HF_C1/이미지 0829146.jpg)
     
 
 ### (6) 파이프라인 종류 3- Mask filling
@@ -261,7 +261,7 @@ unmasker("This course will teach you all about <mask> models.", top_k=2)
 - 마스크 채우기(mask-filling) 모델에 따라 서로 다른 마스크 토큰을 요구할 수 있으므로 다른 모델을 탐색할 때 항상 해당 마스크 토큰을 확인하는 것이 좋음
 - 위젯에서 사용된 부분 보고 확인 가능함
 
-![이미지 0829147.jpg](/assets/HF_pipeline/이미지 0829147.jpg)
+![이미지 0829147.jpg](/assets/HF_C1/이미지 0829147.jpg)
 
 - 해당 사례에서는 mathematical, computational로 filling함
 
@@ -276,7 +276,7 @@ ner = pipeline("ner", grouped_entities=True)
 ner("My name is Sylvain and I work at Hugging Face in Brooklyn.")
 ```
 
-![이미지 0829148.jpg](/assets/HF_pipeline/이미지 0829148.jpg)
+![이미지 0829148.jpg](/assets/HF_C1/이미지 0829148.jpg)
 
 - 여기서 모델은 "Sylvain"이 사람(PER)이고 "Hugging Face"가 조직(ORG)이며 "Brooklyn"이 위치(LOC)으로 식별함
 - 파이프라인 생성 함수에서 `grouped_entities=True` → 파이프라인이 동일한 엔티티에 해당하는 문장의 부분(토큰 혹은 단어)들을 그룹화하도록 함
@@ -298,7 +298,7 @@ question_answerer(
 )
 ```
 
-![이미지 0829149.jpg](/assets/HF_pipeline/이미지 0829149.jpg)
+![이미지 0829149.jpg](/assets/HF_C1/이미지 0829149.jpg)
 
 - 제공된 context에서 정보를 추출하여 응답을 제공함
 
@@ -327,7 +327,7 @@ Thank you all very much.
 )
 ```
 
-![이미지 0829150.jpg](/assets/HF_pipeline/이미지 0829150.jpg)
+![이미지 0829150.jpg](/assets/HF_C1/이미지 0829150.jpg)
 
 - 스티브잡스 연설문 일부를 가지고 와서 요약함
 - There is no reason not to follow your heart
