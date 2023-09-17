@@ -2,7 +2,7 @@
 title: "[추천시스템] (GRU4REC) SESSION-BASED RECOMMENDATIONS WITH RECURRENT NEURAL NETWORKS"
 categories: Recommendation-System
 tags:
-  - [추천시스템 개념]
+  - [GRU4rec]
 comments: true
 toc: true
 toc_sticky: true
